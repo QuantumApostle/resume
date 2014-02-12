@@ -1,155 +1,153 @@
-% LaTeX resume using res.cls
-\documentclass[margin]{res}
-%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
-\usepackage{newcent}   % uses new century schoolbook postscript font 
-\setlength{\textwidth}{5.1in} % set width of text portion
-\linespread{0.8}
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\textheight=10in
+\pagestyle{empty}
+%\raggedbottom
+\raggedright
+
+%  \renewcommand{\encodingdefault}{cg}
+  %\renewcommand{\rmdefault}{lgrcmr}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+% DEFINITIONS FOR RESUME
+\newcommand{\area}[2]{\vspace*{-9pt} \begin{verse}\textbf{#1}   #2 \end{verse}  }
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-18pt} \hrulefill \\}
+\newcommand{\header}[1]{{\hspace*{-15pt}\vspace*{6pt} \textsc{#1}} \vspace*{-6pt} \lineunder}
+\newcommand{\employer}[3]{{ \textbf{#1} \hfill #2\\ \underline{\textbf{\emph{#3}}}\\  }}
+\newcommand{\project}[1]{\textbf{#1}}
+\newcommand{\contact}[3]{
+\vspace*{-8pt}
+\begin{center}
+{\LARGE \scshape {#1}}\\
+#2 \lineunder 
+#3
+\end{center}
+\vspace*{-8pt}
+}
+\newenvironment{achievements}{\begin{list}{$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}\end{list}}
+\newcommand{\schoolwithcourses}[5]{
+ \textbf{#1} #2 $\bullet$ #3\hfill #4\\
+ #5\\
+\vspace*{5pt}
+}
+\newcommand{\school}[4]{
+ \textbf{#1} #2 $\bullet$ #3\\ 
+#4 \\
+}
+% END RESUME DEFINITIONS
+
 \begin{document}
 
+\small
+\smallskip
+\vspace*{-44pt}
 
-% Center the name over the entire width of resume:
- \moveleft.5\hoffset\centerline {\LARGE\bf Yixin Geng}   
+\contact{Yixin Geng}
+{1301 Barthelow Dr., Apt 26C, College Station, TX 77840}
+{(347)209-8336 $\bullet$ yixingengcn@gmail.com}
 
-% Draw a horizontal line the whole width of resume:
-% phone email
- \moveleft.5\hoffset\centerline{{\normalsize\bf  Phone:} 1-347-209-8336   {\normalsize\bf  Email:} yixingengcn@gmail.com }
- \moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip
+\header{Education}
 
-\begin{resume}
-\section{EDUCATION} 
-	{\sl \textbf{M.E. in Computer Engineering}}\hfill  	2012.8-2014.5(Expected)\\
-		Texas A\&M University, College Station, TX, USA \\
-	{\sl \textbf{M.S. in Computer Information and Science}}	\hfill 				2012.1-2012.7 \\
-		Gannon University, Erie, PA, USA\\
-		Major in:  Software Engineering\\
-		GPA: 3.67\\
-	{\sl \textbf{B.S. in Physics and Mathematics}}	\hfill 				2007.8-2011.5 \\
-		Stony Brook University, Stony Brook, NY, USA\\
-		Major GPA: 3.49, Overall GPA: 3.57
+\schoolwithcourses{Texas A\&M University}{College Station, TX, U.S.A.}{M.E. in Computer Eng.}{2012.8-2014.5}
+{Cumulative GPA: 3.5/4.00}
+	\area{Computer Science}{ Advanced Algorithm Analysis $\cdot$ Database System $\cdot$ Quantum Computation $\cdot$ Programming Language and Implementation $\cdot$ Information Retrieval and Storage $\cdot$ Machine Learning $\cdot$ Intelligent User Interface $\cdot$ Software Requirement Management}
+	\area{Electrical Engineering}{Low-noise Circuit Design $\cdot$ Internet Protocol Modeling $\cdot$ Pattern Recognition}
+\schoolwithcourses{Gannon University}{Erie, PA, U.S.A.}{M.S. in Computer Information and Science}{2012.1-2012.7}
+{Cumulative GPA: 3.66/4.00}
+\schoolwithcourses{SUNY at Stony Brook}{Stony Brook, NY, U.S.A.}{B.S. in Physics, Math}{2007.8-2011.5}
+{Cumulative GPA: 3.57/4.00}
 
-\section{WORKING EXPERIENCE}		
-	{\sl \textbf{Animal Activity Data Processing and Analysis}}\\
-		Overview: Process, analyze and store animal's activity data collected through accelerometer sensor.
-		\begin{itemize}
-			\item Position:\textbf{Research Assistant} \hfill \textbf{2013.7-present}
-			\item Extract data through noise filtering
-			\item Analyze the animal's overall activity metabolic energy expenditure
-			\item Analyze the animal's activity pattern applying machine learning algorithm
-			\item Develop a database management system to store the experiment data
-			\item Software: R, Matlab, 
-			\item Programming Language: Python, Java
-			\item Supervisor: Dr. Heather Manley \hfill \textbf{Texas A\&M Institute of Preclinical Studies}
-		\end {itemize}
-		
-	{\sl \textbf{3D Image Processing and Optimization}}\\
-		Overview: Systematic approach for constructing editable 3D surface models from stereo cameras and develop a commercialized system for automatically building custom-contoured seats
-		\begin{itemize}
-			\item Position:\textbf{Research Assistant} \hfill \textbf{2012.1-2012.7}
-			\item Develop the processing module to convert the raw image format captured from BumbleBee2 3D Camera
-			\item Optimize the quality of image through applying image smoothing algorithm
-			\item Language: C++
-			\item Framework: MFC
-			\item IDE: Visual Studio 2005
-			\item Supervisor: Dr. Frank Xu \hfill \textbf{Precision Rehab Manufacturing Inc.}
-		\end {itemize}
-	{\sl \textbf{Graph Data Mining}}\\
-		Overview: Developing a data mining system for non-queue biological data in Neo4g graph database 
-		\begin{itemize}
-			\item Position:\textbf{Research Assistant} \hfill \textbf{2012.1-2012.3}
-			\item Implement the plotting and layout modules in user interface
-			\item Designing and implementing algorithms for graph data-mining
-			\item Language: Java
-			\item IDE: Netbeans 7.1
-			\item Database: Neo4g NoSQL graph database
-			\item Advisor: Dr. Yunkai Liu \hfill \textbf{Gannon University} 
-		\end {itemize}
+\header{Work Experience}
+\employer{Texas A\&M Institute for Preclinical Studies}{2013.6-now}{Research Assistant}
+	\begin{achievements}
+	\item Extracting data through noise filtering
+	\item Analyzing the animal's overall activity metabolic energy expenditure and recognizing the pattern of animal
+	s activities
+	\item Developing a database management system to store the experiment data
+	\item Software: R, Matlab 
+	\item Programming Language: Python, Java
+	\item Database: MySQL
+	\end{achievements}
 
-\section{PROJECT EXPERIENCE}		
-%	{\sl \textbf{Distributed Password Cracker System}}\\
-%		Overview: Developing a password cracker system applying distributed computing and communication
-%		\begin{itemize}
-%			\item Develop a password cracker cracking SHA-1 encryption system
-%			\item Using UDP and epoch mechanism to implement the robust communication between client and server
-%			\item Using multithread mechanism in server side to manage requests and cracking work assignment
-%			\item Language: C
-%			\item Environment: Ubuntu Linux
-%		\end {itemize}%	
-	{\sl \textbf{Traumatic Brain Injury Management System}}\\
-		Overview: Developing a medical assisting and management system helping nurse to monitor the patients' status who had traumatic brain injury. According to the status data and previous treatments, the system can predict the patient's status, warn the nurses and recommend effective treatment.
-		\begin{itemize}
-			\item Develop the graphical data monitoring module of dynamic status monitoring.
-			\item Applying neural network to learn and predict the patient's status
-			\item Library: JfreeChart, Swing
-			\item Language: Java
-			\item IDE: Netbeans
-			\item Advisor: Dr. Frank Shipman \hfill \textbf{Texas A\&M University} 
-		\end {itemize}
+\employer{Precision Rehab Manufacturing Inc.}{2012.1-2012.7}{Software Engineer}
+	\begin{achievements}
+	\item Developing the processing module to convert format of raw 3D image captured from BumbleBee2 3D Camera
+	\item Optimizing the quality of image through image smoothing algorithm
+	\item Language: C++
+	\item Framework: MFC
+	\item IDE: Visual Studio 2005
+	\end{achievements}
 
-	{\sl \textbf{Music Automatic Sorting System}}\\
-		Overview: Developing a music sorting and recommending system through learning user's habit 
-		\begin{itemize}
-			\item Analyze every music's characteristics in each user's defined lists			
-			\item Learn user's music listening and sorting habit applying neuro-network algorithm		
-			\item Automatically recommend the music with high rank in the list
-			\item Language: Python 2.7.3
-			\item Environment: Ubuntu Linux
-			\item Advisor: Dr. James Caverlee \hfill \textbf{Texas A\&M University}
-		\end {itemize}	
-	
-	{\sl \textbf{Tweet Ranking System}}\\
-		Overview: Developing an integrated tweet ranking system by integrating the similarity between tweets and PageRank score per user
-		\begin{itemize}
-			\item Using JSON module to load data and tf-idf algorithm to calculate the cosine similarity between each tweets and query
-			\item Applying PageRank algorithm to generate the tweets ranking
-			\item Integrate both results and return the optimum tweet according to input query
-			\item Language: Python 2.7.3
-			\item IDE: Pydev in Eclipse
-			\item Advisor: Dr. James Caverlee \hfill \textbf{Texas A\&M University}
-		\end {itemize}
-		
-	{\sl \textbf{Quantum Computation Simulator}}\\
-		Overview: Developing a computation system simulating the quantum computation circuit and algorithm 
-		\begin{itemize}
-			\item Implement the simulation of required quantum gates
-			\item Implement the specific quantum algorithm for matrix product verification
-			\item Language: C, C++
-			\item Linux Software: Lex, Yacc
-			\item Advisor: Dr. Andreas Klappenecker \hfill \textbf{Texas A\&M University}
-		\end {itemize}
-                
+\employer{Gannon University}{2012.1-2012.7}{Research Assistant}
+	\begin{achievements}
+	\item Developing a data mining system for non-queue biological data in Neo4g graph database 
+	\item Implementing the plotting and layout modules in user interface
+	\item Designing and implementing algorithms for graph data-mining
+	\item Language: Java
+	\item IDE: Netbeans 7.1
+	\item Database: Neo4g NoSQL graph database
+	\end{achievements}
 
-	{\sl \textbf{Automated Test Data Generation for Structural Testing}}\\
-		Overview: Generate a framework to generate test data for Java Program including static analysis Java program. Build runtime environment to track execution path dynamically, applying data mining algorithm to deal with input, output and expected output.
-		\begin{itemize}
-			\item Optimize graph algorithm to demonstrate Java program structure
-			\item Design and implement whole UI displaying the generation process
-			\item Improve efficiency of the search-based algorithms used to generate test data
-			\item Language: Java
-			\item Invoking Libraries: Java Swing, mxGraph from JGraph Ltd.
-			\item IDE: Netbeans
-			\item Framework: Soot (static analyser of possible paths), Antlr 3.2 (runtime environment to track executable path)
-			\item Advisor: Dr. Frank Xu \hfill \textbf{Gannon University} 
-		\end {itemize}
+\header{Course Projects}
+\project{Traumatic Brain Injury Management System}
+\begin{achievements}
+	\item Developing a medical assisting and management system helping nurse to monitor the patients' status who had traumatic brain injury.
+	\item Developing the graphical data monitoring module of dynamic status monitoring.
+	\item Applying neural network to learn and predict the patient's status
+	\item Library: JfreeChart, Swing
+	\item Language: Java
+	\item IDE: Netbeans
+\end{achievements}
 
-\section{TAKEN/TAKING COURSES}
-	\begin{itemize}
-		\item Intelligent User Interface, Low-noise Circuit Design, Algorithm Design, Quantum Computation, Machine Learning, Internet Protocol Modeling, Distributed Processing System, Information Retrieval, Software Requirement Management, Database System, 
-	\end{itemize}
+\project{Distributed Password Cracker System}
+\begin{achievements}
+	\item Developing a password cracker system cracking SHA-1 encryption applying distributed computing and communication
+	\item Using UDP and epoch mechanism to implement the robust communication between client and server
+	\item Using multithread mechanism in server side to manage requests and cracking work assignment
+	\item Language: C
+	\item Environment: Ubuntu Linux
+\end{achievements}	
 
-\section{COMPUTER SKILL}             
-	\begin{itemize}
-		\item \textbf{Programming Language:} Java, C/C++, Python, Fortran, Matlab/Octave, SQL/PLSQL
-		\item \textbf{IDE:} Eclipse, Visual Studio, Netbeans
-		\item \textbf{Database:} MySQL, Oracle 10/11g, MS Access, Neo4g
-		\item \textbf{OS:} Windows, Unix/Linux
-		\item \textbf{Others:} LaTeX, Vim, Subversion, Git, Matlab, R, Maple, Mathematica, MS Office
-	\end{itemize}
-	
-           
+\project{Music Automatic Sorting System}
+\begin{achievements}
+	\item Developing a music sorting and recommending system through learning user's habit 
+	\item Analyzing every music's characteristics in each user's defined lists			
+	\item Learning user's music listening and sorting habit applying neuro-network algorithm		
+	\item Automatically recommending the music with high ranking
+	\item Language: Python 2.7.3
+	\item Environment: Ubuntu Linux
+\end{achievements}
 
-\end{resume}
+\project{Tweet Ranking System}
+\begin{achievements}
+	\item Developing an integrated tweet ranking system by integrating the similarity between tweets and PageRank score per user
+	\item Using JSON module to load data and tf-idf algorithm to calculate the cosine similarity between each tweets and query
+	\item Integrating both results and return the optimum tweet according to input query
+	\item Language: Python 2.7.3
+	\item IDE: Pydev in Eclipse
+\end{achievements}
+
+\project{Quantum Computation Simulator}
+\begin{achievements}
+	\item Developing a computation system simulating the quantum computation circuit and algorithm 
+	\item Implementing the simulation of required quantum gates
+	\item Implementing the specific quantum algorithm for matrix product verification
+	\item Language: C, C++
+	\item Linux Software: Lex, Yacc
+\end{achievements}
+
+\header{Skills}
+\begin{achievements}
+\item \textbf{Programming Language:}Java, C/C++, Python, Fortran, Matlab/Octave, SQL/PLSQL
+\item \textbf{IDE:} Eclipse, Visual Studio, Netbeans
+\item \textbf{Database:} MySQL, Oracle 10/11g, MS Access, Neo4g
+\item \textbf{OS:} Windows, Unix/Linux
+\item \textbf{Others:} \LaTeX, Vim, Subversion, Git, Matlab, R, Maple, Mathematica, MS Office
+\end{achievements}
+
+
+
+
 \end{document}
-
-
-
-
